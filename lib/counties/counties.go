@@ -20,12 +20,12 @@ type Counties struct {
 func (c Counties) AsHTML() (string, error) {
 	t := template.Must(template.New("").Parse(`
 <table>
-<th>
-<td>StateName</td>
-<td>StateAbbrev</td>
-<td>CountyName</td>
-<td>.AppraiserSite</td>
-</th>
+<tr>
+<th>State Name</th>
+<th>State Abbrev</th>
+<th>County Name</th>
+<th>.Appraiser Site</th>
+</tr>
 {{range .Counties}}
 <tr>
 <td>{{.StateName}}</td>
