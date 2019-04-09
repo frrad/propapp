@@ -24,14 +24,14 @@ func (c Counties) AsHTML() (string, error) {
 <th>State Name</th>
 <th>State Abbrev</th>
 <th>County Name</th>
-<th>.Appraiser Site</th>
+<th>Appraiser Site</th>
 </tr>
 {{range .Counties}}
 <tr>
 <td>{{.StateName}}</td>
 <td>{{.StateAbbrev}}</td>
 <td>{{.CountyName}}</td>
-<td>{{.AppraiserSite}}</td>
+<td><a href="{{.AppraiserSite}}">link</a></td>
 </tr>
 {{end}}
 </table>
