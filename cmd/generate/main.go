@@ -51,11 +51,28 @@ func run(c *cli.Context) error {
 }
 
 func writeHTML(w io.Writer, countyData counties.Counties) error {
-	x, err := countyData.AsHTML()
+	formatStr := `
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+%s
+
+</body>
+</html>
+`
+
+	countryTable, err := countyData.AsHTML()
 	if err != nil {
 		return err
 	}
-	fmt.Fprint(w, x)
+	fmt.Fprintf(w, formatStr, countryTable)
 	return nil
 }
 
