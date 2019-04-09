@@ -1,0 +1,5 @@
+[[county]]
+  state_name = "Georgia"
+  state_abbreviation = "GA"
+  county_name = "Fulton"
+  appraiser_site = "https://iaspublicaccess.fultoncountyga.gov/forms/htmlframe.aspx?mode=content/home.htm"
