@@ -5,6 +5,18 @@
     name = "Brevard"
     appraiser_site = "https://www.bcpao.us/PropertySearch/#/nav/Search"
 
+  [[FL.counties]]
+    name = "Oragne"
+    appraiser_site = "http://www.ocpafl.org/searches/ParcelSearch.aspx"
+
+  [[FL.counties]]
+    name = "Duval"
+    appraiser_site = "https://paopropertysearch.coj.net/Basic/Search.aspx"
+
+  [[FL.counties]]
+    name = "Hillsborough"
+    appraiser_site = "https://gis.hcpafl.org/propertysearch/#/nav/Basic%20Search"
+
 [GA]
   full_name = "Georgia"
 
