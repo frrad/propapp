@@ -6,18 +6,47 @@ import (
 	"html/template"
 )
 
+// materialized
+type CountyTable []CountyRow
+
+type CountyRow struct {
+	StateName     string
+	StateAbbrev   string
+	CountyName    string
+	AppraiserSite string
+}
+
+// at rest
+type UserData map[string]State
+
+type State struct {
+	FullName string   `toml:"full_name"`
+	Counties []County `toml:"counties"`
+}
+
 type County struct {
-	StateName     string `toml:"state_name"`
-	StateAbbrev   string `toml:"state_abbreviation"`
-	CountyName    string `toml:"county_name"`
+	Name          string `toml:"name"`
 	AppraiserSite string `toml:"appraiser_site"`
 }
 
-type Counties struct {
-	Counties []County `toml:"county"`
+func (d UserData) AsTable() CountyTable {
+	ans := []CountyRow{}
+
+	for stateAbbrev, stateData := range d {
+		for _, county := range stateData.Counties {
+			ans = append(ans, CountyRow{
+				StateName:     stateData.FullName,
+				StateAbbrev:   stateAbbrev,
+				CountyName:    county.Name,
+				AppraiserSite: county.AppraiserSite,
+			})
+		}
+	}
+
+	return ans
 }
 
-func (c Counties) AsHTML() (string, error) {
+func (c CountyTable) AsHTML() (string, error) {
 	t := template.Must(template.New("").Parse(`
 <table>
 <tr>
@@ -26,7 +55,7 @@ func (c Counties) AsHTML() (string, error) {
 <th>County Name</th>
 <th>Appraiser Site</th>
 </tr>
-{{range .Counties}}
+{{range .}}
 <tr>
 <td>{{.StateName}}</td>
 <td>{{.StateAbbrev}}</td>

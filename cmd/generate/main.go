@@ -22,8 +22,8 @@ func run(c *cli.Context) error {
 		return err
 	}
 
-	var countyData counties.Counties
-	if _, err := toml.Decode(string(dat), &countyData); err != nil {
+	var data counties.UserData
+	if _, err := toml.Decode(string(dat), &data); err != nil {
 		return err
 	}
 
@@ -32,9 +32,10 @@ func run(c *cli.Context) error {
 		return err
 	}
 
-	w := bufio.NewWriter(f)
+	table := data.AsTable()
 
-	err = writeHTML(w, countyData)
+	w := bufio.NewWriter(f)
+	err = writeHTML(w, table)
 	if err != nil {
 		return err
 	}
@@ -50,7 +51,7 @@ func run(c *cli.Context) error {
 	return nil
 }
 
-func writeHTML(w io.Writer, countyData counties.Counties) error {
+func writeHTML(w io.Writer, countyData counties.CountyTable) error {
 	formatStr := `
 <html>
 <head>

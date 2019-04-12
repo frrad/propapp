@@ -1,11 +1,20 @@
-[[county]]
-  state_name = "Georgia"
-  state_abbreviation = "GA"
-  county_name = "Fulton"
-  appraiser_site = "https://iaspublicaccess.fultoncountyga.gov/forms/htmlframe.aspx?mode=content/home.htm"
+[FL]
+  full_name = "Florida"
 
-[[county]]
-  state_name = "Florida"
-  state_abbreviation = "FL"
-  county_name = "Brevard"
-  appraiser_site = "https://www.bcpao.us/PropertySearch/#/nav/Search"
+  [[FL.counties]]
+    name = "Brevard"
+    appraiser_site = "https://www.bcpao.us/PropertySearch/#/nav/Search"
+
+[GA]
+  full_name = "Georgia"
+
+  [[GA.counties]]
+    name = "Fulton"
+    appraiser_site = "https://iaspublicaccess.fultoncountyga.gov/forms/htmlframe.aspx?mode=content/home.htm"
+
+[NC]
+  full_name = "North Carolina"
+
+  [[NC.counties]]
+    name = "Mecklenburg"
+    appraiser_site = "https://property.spatialest.com/nc/mecklenburg/#/"

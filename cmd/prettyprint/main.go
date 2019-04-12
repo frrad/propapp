@@ -20,7 +20,7 @@ func run(c *cli.Context) error {
 		return err
 	}
 
-	var countyData counties.Counties
+	var countyData map[string]counties.State
 	if _, err := toml.Decode(string(dat), &countyData); err != nil {
 		return err
 	}
