@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"sort"
 
 	"github.com/BurntSushi/toml"
 	"github.com/frrad/propapp/lib/counties"
@@ -34,6 +35,8 @@ func run(c *cli.Context) error {
 	w := bufio.NewWriter(f)
 	enc := toml.NewEncoder(w)
 
+	sortCounties(countyData)
+
 	if err := enc.Encode(countyData); err != nil {
 		return err
 	}
@@ -43,6 +46,16 @@ func run(c *cli.Context) error {
 	}
 
 	return nil
+}
+
+// sortCounties sorts counties in place for each state.
+func sortCounties(states map[string]counties.State) {
+	for _, stateData := range states {
+		cs := stateData.Counties
+		sort.Slice(cs, func(i, j int) bool {
+			return cs[i].Name < cs[j].Name
+		})
+	}
 }
 
 func main() {
