@@ -6,7 +6,7 @@
     appraiser_site = "https://www.bcpao.us/PropertySearch/#/nav/Search"
 
   [[FL.counties]]
-    name = "Oragne"
+    name = "Orange"
     appraiser_site = "http://www.ocpafl.org/searches/ParcelSearch.aspx"
 
   [[FL.counties]]
@@ -16,6 +16,10 @@
   [[FL.counties]]
     name = "Hillsborough"
     appraiser_site = "https://gis.hcpafl.org/propertysearch/#/nav/Basic%20Search"
+
+  [[FL.counties]]
+    name = "Volusia"
+    appraiser_site = "http://publicaccess.vcgov.org/volusia/search/commonsearch.aspx?mode=realprop"
 
 [GA]
   full_name = "Georgia"
