@@ -16,9 +16,9 @@
   [[FL.counties]]
     name = "Hillsborough"
     appraiser_site = "https://gis.hcpafl.org/propertysearch/#/nav/Basic%20Search"
-    
+
   [[FL.counties]]
-    name = "Volusia"    
+    name = "Volusia"
     appraiser_site = "http://publicaccess.vcgov.org/volusia/search/commonsearch.aspx?mode=realprop"
 
 [GA]
